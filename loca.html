@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Где нас найти</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #map {
+            height: 400px; /* Высота карты */
+            width: 100%; /* Ширина карты */
+        }
+    </style>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Интерактивная карта Яндекс</h1>
+        <div class="dropdown">
+            <button class="dropbtn">Меню</button>
+            <div class="dropdown-content">
+                <a href="main.html">На главную</a>
+                <a href="aunt.html">Авторизация</a>
+                <a href="AboutUs.html">О компании</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="map"></div> <!-- Здесь будет карта -->
+
+    <script>
+        // Инициализация карты
+        ymaps.ready(init);
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [55.8454575, 37.6582546], // Координаты центра карты (Москва)
+                zoom: 10
+            });
+
+            // Добавление метки
+            var myPlacemark = new ymaps.Placemark([55.8454575, 37.6582546], {
+                balloonContent: 'Наш магазин'
+            });
+
+            myMap.geoObjects.add(myPlacemark);
+        }
+    </script>
+
+</body>
+</html>
